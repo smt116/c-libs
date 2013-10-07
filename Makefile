@@ -14,7 +14,6 @@ compile: $(OBJS) $(LIBS)
 	$(CC) $(FLAGS) $(OBJS) -o $(OUTPUT)
 
 libs: $(OBJS) $(LIBS)
-#	$(CC) -shared -Wl,-soname,$(LIB_OUTPUT) -o $(LIB_OUTPUT) $(LIB_OBJS)
 	ar rcs smt_lib.a $(LIB_OBJS)
 
 %.o: %.c $(LIBS)
