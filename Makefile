@@ -15,13 +15,13 @@ compile: $(OBJS) $(LIBS)
 
 libs: $(OBJS) $(LIBS)
 #	$(CC) -shared -Wl,-soname,$(LIB_OUTPUT) -o $(LIB_OUTPUT) $(LIB_OBJS)
-	ar rcsv smt_lib.a $(LIB_OBJS)
+	ar rcs smt_lib.a $(LIB_OBJS)
 
 %.o: %.c $(LIBS)
 	$(CC) $(FLAGS) -c $<
 
 clean:
-	rm -f *~ *.o .*.swp
+	rm -f *~ *.o .*.swp *.a
 
 veryclean: clean
 	rm -f *.in *.out $(OUTPUT)
