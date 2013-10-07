@@ -1,23 +1,22 @@
 # Maciej Małecki
 # smt116@gmail.com
 
-# Flagi dla kompilatora
-FLAGS = -Wall -ggdb
-# Nazwa programu wyjsciowego
+FLAGS = -Wall -ggdb -ansi -fPIC
 OUTPUT = app.out
-# Nazwa plikow obiektowych
+LIB_OUTPUT = smt_lib.a
 OBJS = main.o lib.o vector.o matrix.o time.o
-# Nazwa plikow naglowkowych
+LIB_OBJS = lib.o vector.o matrix.o time.o
 LIBS = lib.h vector.h matrix.h time.h
 
-# Domyslna regola
 default: compile clean
 
-# Kompilacja
 compile: $(OBJS) $(LIBS)
 	$(CC) $(FLAGS) $(OBJS) -o $(OUTPUT)
 
-# Regula (pattern)
+libs: $(OBJS) $(LIBS)
+#	$(CC) -shared -Wl,-soname,$(LIB_OUTPUT) -o $(LIB_OUTPUT) $(LIB_OBJS)
+	ar rcsv smt_lib.a $(LIB_OBJS)
+
 %.o: %.c $(LIBS)
 	$(CC) $(FLAGS) -c $<
 

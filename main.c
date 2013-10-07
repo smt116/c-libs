@@ -8,7 +8,6 @@ int main(int argc, char *argv[]) {
 
   int i;
 
-  // Vector
   Vector *p = new_vector(3),
          *q = new_vector(2),
          *ptr;
@@ -34,7 +33,6 @@ int main(int argc, char *argv[]) {
   ptr = multiply_vectors(p, q);
   printf("p * q [%i, %i, %i]\n", ptr->data[0], ptr->data[1], ptr->data[2]);
 
-  // Matrix
   Matrix *a,
          *b;
   a = new_matrix(2,3);
