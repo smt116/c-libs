@@ -2,8 +2,8 @@
  * Maciej Małecki
  * smt116@gmail.com
  */
-#ifndef SMT__LOCAL_LIB
-#define SMT__LOCAL_LIB
+#ifndef SMT__LOCAL_STATIC_LIB
+#define SMT__LOCAL_STATIC_LIB
 
   #include <stdio.h>
   #include <stdlib.h>
