@@ -9,28 +9,27 @@ int main() {
   Vector *p = new_vector(3),
          *q = new_vector(2),
          *ptr;
+  {
+    double a[2] = {3,4};
+    set_vector_with_var(p, 1);
+    set_vector_with_vars(q, a);
+  }
 
-  p->data[0] = 1;
-  p->data[1] = 2;
-  p->data[2] = 3;
-  q->data[0] = 10;
-  q->data[1] = 11;
-
-  printf("p[%i, %i, %i]\n", p->data[0], p->data[1], p->data[2]);
-  printf("q[%i, %i]\n", q->data[0], q->data[1]);
+  print_vector(p, "p");
+  print_vector(q, "q");
 
   ptr = add_vectors(p, q);
-  printf("p + q [%i, %i, %i]\n", ptr->data[0], ptr->data[1], ptr->data[2]);
+  print_vector(ptr, "p + q");
   delete_vector(ptr);
 
   multiply_vector_by(p, 3);
-  printf("3 * p [%i, %i, %i]\n", p->data[0], p->data[1], p->data[2]);
+  print_vector(p, "3 * p");
 
-  printf("p[%i, %i, %i]\n", p->data[0], p->data[1], p->data[2]);
-  printf("q[%i, %i]\n", q->data[0], q->data[1]);
+  print_vector(p, "p");
+  print_vector(q, "q");
 
   ptr = multiply_vectors(p, q);
-  printf("p * q [%i, %i, %i]\n", ptr->data[0], ptr->data[1], ptr->data[2]);
+  print_vector(ptr, "p * q");
   delete_vector(ptr);
 
   delete_vector(p);

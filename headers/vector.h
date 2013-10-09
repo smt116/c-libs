@@ -7,7 +7,7 @@
 
   typedef struct Vector {
     int size;
-    int *data;
+    double *data;
   } Vector;
 
   Vector *new_vector(int);
@@ -16,6 +16,9 @@
    * Be sure that p->size >= q->size!
    */
   Vector *add_vectors(Vector *, Vector *);
+  void set_vector_with_var(Vector *, double);
+  void set_vector_with_vars(Vector *, double *);
+  void print_vector(Vector *, char *);
   void delete_vector(Vector *);
   void multiply_vector_by(Vector *, int);
   Vector *multiply_vectors(Vector *, Vector *);

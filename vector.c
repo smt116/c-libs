@@ -10,9 +10,38 @@ Vector *new_vector(int size) {
   v = MALLOC(Vector, 1);
 
   v->size = size;
-  v->data = MALLOC(int, v->size);
+  v->data = MALLOC(double, v->size);
 
   return v;
+}
+
+void set_vector_with_var(Vector *p, double x) {
+  int i;
+
+  for(i=0; i < p->size; i++) {
+    p->data[i] = x;
+  }
+}
+
+void set_vector_with_vars(Vector *p, double *data) {
+  int i;
+
+  for(i=0; i < p->size; i++) {
+    p->data[i] = data[i];
+  }
+}
+
+void print_vector(Vector *p, char *name) {
+  int i;
+
+  printf("%s(%i):[ ", name, p->size);
+  for(i=0; i < p->size; i++) {
+    if((i+1) == p->size) {
+      printf("%4.2lf ]\n", p->data[i]);
+    } else {
+      printf("%4.2lf, ", p->data[i]);
+    }
+  }
 }
 
 /*
