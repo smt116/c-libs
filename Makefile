@@ -5,8 +5,8 @@ FLAGS = -W -Wall -ggdb -fPIC
 ADDITIONAL_FLAGS = -lrt
 OUTPUT = app.out
 LIB_NAME = smt_lib
-OBJS = main.o lib.o vector.o matrix.o time.o
-LIB_OBJS = lib.o vector.o matrix.o time.o
+OBJS = main.o vector.o matrix.o time.o
+LIB_OBJS = vector.o matrix.o time.o
 LIBS = lib.h ${ls ./headers/ *.h}
 
 default: libs compile clean
