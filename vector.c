@@ -19,23 +19,21 @@ Vector *new_vector(int size) {
  * Be sure that p->size >= q->size!
  */
 Vector *add_vectors(Vector *p, Vector *q) {
-  Vector v, *ptr;
+  Vector *v;
   int i;
 
-  v.size = p->size;
-  v.data = MALLOC(int, v.size);
+  v = new_vector(p->size);
 
   for(i=0; i < q->size; i++) {
-    v.data[i] = p->data[i] + q->data[i];
+    v->data[i] = p->data[i] + q->data[i];
   }
   if(i < p->size) {
     for(i=i; i < p->size; i++) {
-      v.data[i] = p->data[i];
+      v->data[i] = p->data[i];
     }
   }
 
-  ptr = &v;
-  return ptr;
+  return v;
 }
 
 void multiply_vector_by(Vector *p, int a) {
@@ -47,24 +45,29 @@ void multiply_vector_by(Vector *p, int a) {
 }
 
 Vector *multiply_vectors(Vector *p, Vector *q) {
-  Vector v, *ptr;
-  int i;
+  Vector *v;
+  int i, size;
 
   if(p->size < q->size) {
-    v.size = q->size;
+    size = q->size;
   } else {
-    v.size = p->size;
+    size = p->size;
   }
-  v.data = MALLOC(int, v.size);
 
-  for(i=0; i < v.size; i++) {
-    if(p->data[i] && q->data[i]) {
-      v.data[i] = p->data[i] * q->data[i];
+  v = new_vector(size);
+
+  for(i=0; i < size; i++) {
+    if(p->size <= i && q->size <= i) {
+      v->data[i] = p->data[i] * q->data[i];
     } else {
-      v.data[i] = 0;
+      v->data[i] = 0;
     }
   }
 
-  ptr = &v;
-  return ptr;
+  return v;
+}
+
+void delete_vector(Vector *p) {
+  free(p->data);
+  free(p);
 }

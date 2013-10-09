@@ -21,6 +21,7 @@ int main() {
 
   ptr = add_vectors(p, q);
   printf("p + q [%i, %i, %i]\n", ptr->data[0], ptr->data[1], ptr->data[2]);
+  delete_vector(ptr);
 
   multiply_vector_by(p, 3);
   printf("3 * p [%i, %i, %i]\n", p->data[0], p->data[1], p->data[2]);
@@ -30,23 +31,27 @@ int main() {
 
   ptr = multiply_vectors(p, q);
   printf("p * q [%i, %i, %i]\n", ptr->data[0], ptr->data[1], ptr->data[2]);
+  delete_vector(ptr);
+
+  delete_vector(p);
+  delete_vector(q);
 
   Matrix *a,
          *b;
-  a = new_matrix(2,3);
-  b = new_matrix(3,2);
-  a->vector[0]->data[0] = 1;
-  a->vector[0]->data[1] = 2;
-  a->vector[0]->data[2] = 3;
-  a->vector[1]->data[0] = 11;
-  a->vector[1]->data[1] = 22;
-  a->vector[1]->data[2] = 33;
-  b->vector[0]->data[0] = 111;
-  b->vector[0]->data[1] = 222;
-  b->vector[1]->data[0] = 333;
-  b->vector[1]->data[1] = 1111;
-  b->vector[2]->data[0] = 2222;
-  b->vector[2]->data[1] = 3333;
+  a = new_matrix(3,2);
+  b = new_matrix(1,3);
+  a->data[0] = 1;
+  a->data[1] = 1;
+  a->data[2] = 2;
+  a->data[3] = 2;
+  a->data[4] = 3;
+  a->data[5] = 3;
+  b->data[0] = 1;
+  b->data[1] = 2;
+  b->data[2] = 3;
+
+  delete_matrix(a);
+  delete_matrix(b);
 
   start_time();
   printf("strin");

@@ -16,6 +16,7 @@
    * Be sure that p->size >= q->size!
    */
   Vector *add_vectors(Vector *, Vector *);
+  void delete_vector(Vector *);
   void multiply_vector_by(Vector *, int);
   Vector *multiply_vectors(Vector *, Vector *);
 

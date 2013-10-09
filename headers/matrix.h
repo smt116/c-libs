@@ -10,9 +10,10 @@
   typedef struct Matrix {
     int n;
     int m;
-    Vector **vector;
+    int *data;
   } Matrix;
 
   Matrix *new_matrix(int, int);
+  void delete_matrix(Matrix *);
 
 #endif
