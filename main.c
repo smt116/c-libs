@@ -4,9 +4,7 @@
  */
 #include "lib.h"
 
-int main(int argc, char *argv[]) {
-
-  int i;
+int main() {
 
   Vector *p = new_vector(3),
          *q = new_vector(2),
@@ -50,17 +48,11 @@ int main(int argc, char *argv[]) {
   b->vector[2]->data[0] = 2222;
   b->vector[2]->data[1] = 3333;
 
-  Time *t;
-  t = new_time();
-  start_time(t);
-  for(i=0; i<20000; i++) {
-    int k;
-    for(k=i; k>0; k--) {
-      
-    }
-  }
-  stop_time(t);
-  printf("%u\n", time_diff(t));
+  start_time();
+  printf("strin");
+  stop_time();
+  printf("%0.16lf\n", time_diff());
 
-	return 0;
+
+  return 0;
 }

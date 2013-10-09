@@ -7,15 +7,13 @@
 
   #include <time.h>
 
-  typedef struct Time {
-    clock_t start;
-    clock_t stop;
-    unsigned diff_in_milliseconds;
-  } Time;
+  #define MLD 1000000000.0
 
-  Time *new_time(void);
-  void start_time(Time *);
-  void stop_time(Time *);
-  unsigned time_diff(Time *);
+  struct timespec __time_start,
+                  __time_stop;
+
+  void start_time(void);
+  void stop_time(void);
+  double time_diff(void);
 
 #endif

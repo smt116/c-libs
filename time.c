@@ -1,26 +1,18 @@
 /*
  * Maciej Małecki
- * smt116@gmail.com
+ * sm__time_stop16@gmail.com
  */
 #include "lib.h"
 
-Time *new_time(void) {
-  Time *v;
-
-  v = MALLOC(Time, 1);
-
-  return v;
+void start_time(void) {
+  clock_gettime(CLOCK_REALTIME, &__time_start);
 }
 
-void start_time(Time *p) {
-  p->start = clock();
+void stop_time(void) {
+  clock_gettime(CLOCK_REALTIME, &__time_stop);
 }
 
-void stop_time(Time *p) {
-  p->stop = clock();
-}
-
-unsigned time_diff(Time *p) {
-  p->diff_in_milliseconds = difftime(p->stop, p->start) / 1000;
-  return p->diff_in_milliseconds;
+double time_diff(void) {
+  return ((__time_stop.tv_sec + __time_stop.tv_nsec)/MLD) -
+          ((__time_start.tv_sec + __time_start.tv_nsec)/MLD);
 }
