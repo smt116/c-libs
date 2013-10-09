@@ -37,17 +37,27 @@ int main() {
 
   Matrix *a,
          *b;
-  a = new_matrix(3,2);
-  b = new_matrix(1,3);
-  a->data[0] = 1;
-  a->data[1] = 1;
-  a->data[2] = 2;
-  a->data[3] = 2;
-  a->data[4] = 3;
-  a->data[5] = 3;
-  b->data[0] = 1;
-  b->data[1] = 2;
-  b->data[2] = 3;
+  a = new_matrix(4,5);
+  set_matrix_with_var(a, 22);
+  print_matrix(a, "a");
+  delete_matrix(a);
+
+  a = new_matrix(3,3);
+  b = new_matrix(3,1);
+  {
+    double vars1[3] = { 1, 2, 3 },
+           vars2[9] = { 3, 2, 1, 1, 2, 3, 2, 3, 1 };
+    set_matrix_with_vars(a, vars2);
+    set_matrix_with_vars(b, vars1);
+  }
+  print_matrix(a, "a");
+  print_matrix(b, "b");
+
+/*
+  Matrix *c = product_matrix(a, b);
+  print_matrix(c, "c");
+  delete_matrix(c);
+*/
 
   delete_matrix(a);
   delete_matrix(b);
@@ -58,7 +68,6 @@ int main() {
   stop_time(t);
   print_time(t);
   delete_time(t);
-
 
   return 0;
 }
