@@ -4,15 +4,29 @@
  */
 #include "lib.h"
 
-void start_time(void) {
-  clock_gettime(CLOCK_REALTIME, &__time_start);
+Time *new_time(void) {
+  Time *p = MALLOC(Time, 1);
+  p->time = 0;
+  return p;
 }
 
-void stop_time(void) {
-  clock_gettime(CLOCK_REALTIME, &__time_stop);
+void start_time(Time *t) {
+  clock_gettime(CLOCK_REALTIME, &(t->start));
 }
 
-double time_diff(void) {
-  return ((__time_stop.tv_sec + __time_stop.tv_nsec)/MLD) -
-          ((__time_start.tv_sec + __time_start.tv_nsec)/MLD);
+void stop_time(Time *t) {
+  clock_gettime(CLOCK_REALTIME, &(t->stop));
+  t->time += time_diff(&(t->stop), &(t->start));
+}
+
+double time_diff(TimeSpec *p, TimeSpec *q) {
+  return ((p->tv_sec * MLD) + p->tv_nsec) - ((q->tv_sec * MLD) + q->tv_nsec);
+}
+
+void print_time(Time *t) {
+  printf("\nTime:\t%0.16lf\n", (double) t->time / MLD);
+}
+
+void delete_time(Time *t) {
+  free(t);
 }

@@ -53,10 +53,12 @@ int main() {
   delete_matrix(a);
   delete_matrix(b);
 
-  start_time();
+  Time *t = new_time();
+  start_time(t);
   printf("strin");
-  stop_time();
-  printf("%0.16lf\n", time_diff());
+  stop_time(t);
+  print_time(t);
+  delete_time(t);
 
 
   return 0;

@@ -9,11 +9,18 @@
 
   #define MLD 1000000000.0
 
-  struct timespec __time_start,
-                  __time_stop;
+  typedef struct timespec TimeSpec;
+  typedef struct Time {
+    TimeSpec start;
+    TimeSpec stop;
+    unsigned long time;
+  } Time;
 
-  void start_time(void);
-  void stop_time(void);
-  double time_diff(void);
+  Time *new_time(void);
+  void start_time(Time *);
+  void stop_time(Time *);
+  double time_diff(TimeSpec *, TimeSpec *);
+  void print_time(Time *);
+  void delete_time(Time *);
 
 #endif
