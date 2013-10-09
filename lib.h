@@ -8,9 +8,9 @@
   #include <stdio.h>
   #include <stdlib.h>
 
-  #include "vector.h"
-  #include "matrix.h"
-  #include "time.h"
+  #include "headers/vector.h"
+  #include "headers/matrix.h"
+  #include "headers/time.h"
 
   #define MALLOC(type, n) (type*)malloc((n)*sizeof(type))
 

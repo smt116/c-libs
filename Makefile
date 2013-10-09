@@ -7,7 +7,7 @@ OUTPUT = app.out
 LIB_NAME = smt_lib
 OBJS = main.o lib.o vector.o matrix.o time.o
 LIB_OBJS = lib.o vector.o matrix.o time.o
-LIBS = lib.h vector.h matrix.h time.h
+LIBS = lib.h ${ls ./headers/ *.h}
 
 default: libs compile clean
 
