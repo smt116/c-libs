@@ -4,7 +4,10 @@
  */
 #include "lib.h"
 
-int main() {
+int main(int argc, char **argv) {
+
+  double arg1 = get_double_from_args("-size", argc, argv);
+  printf("size: %lf\n", arg1);
 
   Vector *p = new_vector(3),
          *q = new_vector(2),

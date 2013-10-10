@@ -7,11 +7,15 @@
 
   #include <stdio.h>
   #include <stdlib.h>
+  #include <math.h>
+  #include <string.h>
 
   #include "headers/vector.h"
   #include "headers/matrix.h"
   #include "headers/time.h"
 
   #define MALLOC(type, n) (type*)malloc((n)*sizeof(type))
+
+  double get_double_from_args(char *, int, char **);
 
 #endif
