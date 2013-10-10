@@ -15,6 +15,8 @@ int main() {
     set_vector_with_vars(q, a);
   }
 
+  printf("%lf\n", reduce_vector(q, 0, 2));
+
   print_vector(p, "p");
   print_vector(q, "q");
 

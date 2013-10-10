@@ -22,5 +22,6 @@
   void delete_vector(Vector *);
   void multiply_vector_by(Vector *, int);
   Vector *multiply_vectors(Vector *, Vector *);
+  double reduce_vector(Vector *, int, int);
 
 #endif

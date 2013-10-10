@@ -100,3 +100,14 @@ void delete_vector(Vector *p) {
   free(p->data);
   free(p);
 }
+
+double reduce_vector(Vector *p, int start, int end) {
+  int i;
+  double sum = 0.0;
+
+  for(i=start; i < end; i++) {
+    sum += *(p->data + i);
+  }
+
+  return sum;
+}
