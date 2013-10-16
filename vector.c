@@ -86,7 +86,7 @@ Vector *multiply_vectors(Vector *p, Vector *q) {
   v = new_vector(size);
 
   for(i=0; i < size; i++) {
-    if(p->size <= i && q->size <= i) {
+    if(i <= p->size && i <= q->size) {
       v->data[i] = p->data[i] * q->data[i];
     } else {
       v->data[i] = 0;
