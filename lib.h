@@ -16,6 +16,6 @@
 
   #define MALLOC(type, n) (type*)malloc((n)*sizeof(type))
 
-  double get_double_from_args(char *, int, char **);
+  void get_double_from_args(char *, double *, int, char **);
 
 #endif

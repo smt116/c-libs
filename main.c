@@ -6,8 +6,10 @@
 
 int main(int argc, char **argv) {
 
-  double arg1 = get_double_from_args("-size", argc, argv);
-  printf("size: %lf\n", arg1);
+  double arg1;
+  get_double_from_args("-size", &arg1, argc, argv);
+  if(arg1)
+    printf("size: %lf\n", arg1);
 
   Vector *p = new_vector(3),
          *q = new_vector(2),
@@ -27,7 +29,7 @@ int main(int argc, char **argv) {
   print_vector(ptr, "p + q");
   delete_vector(ptr);
 
-  multiply_vector_by(p, 3);
+  multiply_vector_by(p, 3.15);
   print_vector(p, "3 * p");
 
   print_vector(p, "p");
