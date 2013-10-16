@@ -20,7 +20,7 @@
   void set_vector_with_vars(Vector *, double *);
   void print_vector(Vector *, char *);
   void delete_vector(Vector *);
-  void multiply_vector_by(Vector *, int);
+  void multiply_vector_by(Vector *, double);
   Vector *multiply_vectors(Vector *, Vector *);
   double reduce_vector(Vector *, int, int);
 

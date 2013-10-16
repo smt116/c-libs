@@ -65,7 +65,7 @@ Vector *add_vectors(Vector *p, Vector *q) {
   return v;
 }
 
-void multiply_vector_by(Vector *p, int a) {
+void multiply_vector_by(Vector *p, double a) {
   int i;
 
   for(i=0; i < p->size; i++) {
