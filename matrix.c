@@ -11,31 +11,33 @@ Matrix *new_matrix(int n, int m) {
 
   v->n = n;
   v->m = m;
-  v->vector = new_vector(v->n * v->m);
+  v->data = MALLOC(double, v->n * v->m);
 
   return v;
 }
 
 void delete_matrix(Matrix *p) {
-  delete_vector(p->vector);
-  free(p);
+  if(p) {
+    if(p->data) {
+      free(p->data);
+    }
+    free(p);
+  }
 }
 
 void set_matrix_with_var(Matrix *p, double x) {
   int i;
 
-  for(i=0; i < p->vector->size; i++) {
-    p->vector->data[i] = x;
+  for(i=0; i < (p->m * p->n); i++) {
+    p->data[i] = x;
   }
 }
 
 void set_matrix_with_vars(Matrix *p, double *data) {
-  int i, k;
+  int i;
 
-  for(i=0; i < p->n; i++) {
-    for(k=0; k < p->m; k++) {
-      p->vector->data[(i*p->m)+k] = data[(i*p->m)+k];
-    }
+  for(i=0; i < (p->m * p->n); i++) {
+    p->data[i] = data[i];
   }
 }
 
@@ -47,9 +49,9 @@ void print_matrix(Matrix *p, char *name) {
     printf("| ");
     for(k=0; k < p->m; k++) {
       if((k+1) == p->m) {
-        printf("%4.2lf |\n", p->vector->data[(i*p->m)+k]);
+        printf("%4.2lf |\n", p->data[(i*p->m)+k]);
       } else {
-        printf("%4.2lf, ", p->vector->data[(i*p->m)+k]);
+        printf("%4.2lf, ", p->data[(i*p->m)+k]);
       }
     }
   }
@@ -68,8 +70,8 @@ Matrix *product_matrix(Matrix *p, Matrix *q) {
   for(i=0; i < p->n; i++) {
     for(k=0; k < p->m; k++) {
       for(l=0; l < q->n; l++) {
-        ptr->vector->data[(i * ptr->n) + l] += 
-          p->vector->data[(i * p->n) + k] * q->vector->data[(k * q->n) + l];
+        ptr->data[(i * ptr->n) + l] += 
+          p->data[(i * p->n) + k] * q->data[(k * q->n) + l];
       }
     }
   }

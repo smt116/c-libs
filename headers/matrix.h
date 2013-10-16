@@ -10,7 +10,7 @@
   typedef struct Matrix {
     int n;
     int m;
-    Vector *vector;
+    double *data;
   } Matrix;
 
   Matrix *new_matrix(int, int);
