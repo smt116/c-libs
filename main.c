@@ -74,6 +74,7 @@ int main(int argc, char **argv) {
   printf("strin");
   stop_time(t);
   print_time(t);
+  printf("%lf\n", get_time(t));
   delete_time(t);
 
   return 0;

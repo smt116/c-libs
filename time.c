@@ -27,6 +27,10 @@ void print_time(Time *t) {
   printf("\nTime:\t%0.16lf\n", (double) t->time / MLD);
 }
 
+double get_time(Time *t) {
+  return (double) t->time / MLD;
+}
+
 void delete_time(Time *t) {
   free(t);
 }
