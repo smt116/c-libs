@@ -78,3 +78,12 @@ Matrix *product_matrix(Matrix *p, Matrix *q) {
 
   return ptr;
 }
+
+void randomize_matrix(Matrix *p, int max) {
+  int i;
+  srand(time(NULL));
+
+  for(i=0; i < (p->n * p->m); i++) {
+    p->data[i] = rand() % max + ((rand() % 100) / 100.0);
+  }
+}

@@ -111,3 +111,12 @@ double reduce_vector(Vector *p, int start, int end) {
 
   return sum;
 }
+
+void randomize_vector(Vector *p, int max) {
+  int i;
+  srand(time(NULL));
+
+  for(i=0; i < p->size; i++) {
+    p->data[i] = rand() % max + ((rand() % 100) / 100.0);
+  }
+}

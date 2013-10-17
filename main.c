@@ -11,6 +11,18 @@ int main(int argc, char **argv) {
   if(arg1)
     printf("size: %lf\n", arg1);
 
+  {
+    Vector *p = new_vector(5);
+    randomize_vector(p, 32);
+    print_vector(p, "p");
+    delete_vector(p);
+
+    Matrix *m = new_matrix(5, 2);
+    randomize_matrix(m, 16);
+    print_matrix(m, "m");
+    delete_matrix(m);
+  }
+
   Vector *p = new_vector(3),
          *q = new_vector(2),
          *ptr;
