@@ -117,6 +117,6 @@ void randomize_vector(Vector *p, int max) {
   srand(time(NULL));
 
   for(i=0; i < p->size; i++) {
-    p->data[i] = rand() % max + ((rand() % 100) / 100.0);
+    p->data[i] = (rand() % max) + (double) rand() / RAND_MAX;
   }
 }
