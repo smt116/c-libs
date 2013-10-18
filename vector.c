@@ -120,3 +120,16 @@ void randomize_vector(Vector *p, unsigned long long int max) {
     p->data[i] = (rand() % max) + (double) rand() / RAND_MAX;
   }
 }
+
+Vector *vector_cut(Vector *p, unsigned long long int a, unsigned long long int b) {
+  Vector *v;
+  unsigned long long int i;
+
+  v = new_vector(b - a);
+
+  for(i=a; i < b; i++) {
+    v->data[i - a] = p->data[i];
+  }
+
+  return v;
+}

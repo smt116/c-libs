@@ -15,22 +15,16 @@ int main(int argc, char **argv) {
     Vector *p = new_vector(5);
     randomize_vector(p, 32);
     print_vector(p, "p");
+    Vector *q = vector_cut(p, 3, 5);
+    print_vector(q, "p[3,5]");
     delete_vector(p);
+    delete_vector(q);
 
     Matrix *m = new_matrix(5, 2);
     randomize_matrix(m, 16);
     print_matrix(m, "m");
     delete_matrix(m);
   }
-
-    unsigned long long int i=1,k;
-    while(1) {
-      printf("%lli\n",i);
-      k=i;
-      i++;
-      if(i==0)break;
-    }
-    printf("%llu\n",k);
 
   Vector *p = new_vector(3),
          *q = new_vector(2),

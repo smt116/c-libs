@@ -24,5 +24,6 @@
   Vector *multiply_vectors(Vector *, Vector *);
   double reduce_vector(Vector *, unsigned long long int, unsigned long long int);
   void randomize_vector(Vector *, unsigned long long int);
+  Vector *vector_cut(Vector *, unsigned long long int, unsigned long long int);
 
 #endif
