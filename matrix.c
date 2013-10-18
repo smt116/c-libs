@@ -4,7 +4,7 @@
  */
 #include "lib.h"
 
-Matrix *new_matrix(int n, int m) {
+Matrix *new_matrix(unsigned long long int n, unsigned long long int m) {
   Matrix *v;
 
   v = MALLOC(Matrix, 1);
@@ -26,7 +26,7 @@ void delete_matrix(Matrix *p) {
 }
 
 void set_matrix_with_var(Matrix *p, double x) {
-  int i;
+  unsigned long long int i;
 
   for(i=0; i < (p->m * p->n); i++) {
     p->data[i] = x;
@@ -34,7 +34,7 @@ void set_matrix_with_var(Matrix *p, double x) {
 }
 
 void set_matrix_with_vars(Matrix *p, double *data) {
-  int i;
+  unsigned long long int i;
 
   for(i=0; i < (p->m * p->n); i++) {
     p->data[i] = data[i];
@@ -42,9 +42,9 @@ void set_matrix_with_vars(Matrix *p, double *data) {
 }
 
 void print_matrix(Matrix *p, char *name) {
-  int i, k;
+  unsigned long long int i, k;
 
-  printf("\n%s [%i, %i]\n", name, p->n, p->m);
+  printf("\n%s [%llu, %llu]\n", name, p->n, p->m);
   for(i=0; i < p->n; i++) {
     printf("| ");
     for(k=0; k < p->m; k++) {
@@ -65,7 +65,7 @@ Matrix *product_matrix(Matrix *p, Matrix *q) {
 
   Matrix *ptr = new_matrix(q->m, q->n);
   set_matrix_with_var(ptr, 0);
-  int i, k, l;
+  unsigned long long int i, k, l;
 
   for(i=0; i < p->n; i++) {
     for(k=0; k < p->m; k++) {
@@ -79,8 +79,8 @@ Matrix *product_matrix(Matrix *p, Matrix *q) {
   return ptr;
 }
 
-void randomize_matrix(Matrix *p, int max) {
-  int i;
+void randomize_matrix(Matrix *p, unsigned long long int max) {
+  unsigned long long int i;
   srand(time(NULL));
 
   for(i=0; i < (p->n * p->m); i++) {

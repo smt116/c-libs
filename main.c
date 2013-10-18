@@ -23,6 +23,15 @@ int main(int argc, char **argv) {
     delete_matrix(m);
   }
 
+    unsigned long long int i=1,k;
+    while(1) {
+      printf("%lli\n",i);
+      k=i;
+      i++;
+      if(i==0)break;
+    }
+    printf("%llu\n",k);
+
   Vector *p = new_vector(3),
          *q = new_vector(2),
          *ptr;

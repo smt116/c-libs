@@ -4,7 +4,7 @@
  */
 #include "lib.h"
 
-Vector *new_vector(int size) {
+Vector *new_vector(unsigned long long int size) {
   Vector *v;
 
   v = MALLOC(Vector, 1);
@@ -16,7 +16,7 @@ Vector *new_vector(int size) {
 }
 
 void set_vector_with_var(Vector *p, double x) {
-  int i;
+  unsigned long long int i;
 
   for(i=0; i < p->size; i++) {
     p->data[i] = x;
@@ -24,7 +24,7 @@ void set_vector_with_var(Vector *p, double x) {
 }
 
 void set_vector_with_vars(Vector *p, double *data) {
-  int i;
+  unsigned long long int i;
 
   for(i=0; i < p->size; i++) {
     p->data[i] = data[i];
@@ -32,9 +32,9 @@ void set_vector_with_vars(Vector *p, double *data) {
 }
 
 void print_vector(Vector *p, char *name) {
-  int i;
+  unsigned long long int i;
 
-  printf("%s(%i):[ ", name, p->size);
+  printf("%s(%llu):[ ", name, p->size);
   for(i=0; i < p->size; i++) {
     if((i+1) == p->size) {
       printf("%4.2lf ]\n", p->data[i]);
@@ -49,7 +49,7 @@ void print_vector(Vector *p, char *name) {
  */
 Vector *add_vectors(Vector *p, Vector *q) {
   Vector *v;
-  int i;
+  unsigned long long int i;
 
   v = new_vector(p->size);
 
@@ -66,7 +66,7 @@ Vector *add_vectors(Vector *p, Vector *q) {
 }
 
 void multiply_vector_by(Vector *p, double a) {
-  int i;
+  unsigned long long int i;
 
   for(i=0; i < p->size; i++) {
     p->data[i] *= a;
@@ -75,7 +75,7 @@ void multiply_vector_by(Vector *p, double a) {
 
 Vector *multiply_vectors(Vector *p, Vector *q) {
   Vector *v;
-  int i, size;
+  unsigned long long int i, size;
 
   if(p->size < q->size) {
     size = q->size;
@@ -101,8 +101,8 @@ void delete_vector(Vector *p) {
   free(p);
 }
 
-double reduce_vector(Vector *p, int start, int end) {
-  int i;
+double reduce_vector(Vector *p, unsigned long long int start, unsigned long long int end) {
+  unsigned long long int i;
   double sum = 0.0;
 
   for(i=start; i < end; i++) {
@@ -112,8 +112,8 @@ double reduce_vector(Vector *p, int start, int end) {
   return sum;
 }
 
-void randomize_vector(Vector *p, int max) {
-  int i;
+void randomize_vector(Vector *p, unsigned long long int max) {
+  unsigned long long int i;
   srand(time(NULL));
 
   for(i=0; i < p->size; i++) {
