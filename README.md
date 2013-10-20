@@ -1,4 +1,4 @@
-zjp-libs
+c-libs
 ========
 
-Zaawansowane języki programowania - biblioteka
+Easier using of Matrix, Vector and Time in C. Basic implementation for simple projects at the university.
